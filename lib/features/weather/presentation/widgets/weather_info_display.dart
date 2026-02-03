@@ -3,10 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:weather_app/l10n/app_localizations.dart';
 import '../../domain/entities/weather.dart';
 
-/// Reusable widget to display detailed weather information.
-///
-/// Features a "Glassmorphism" design card for humidity and wind details,
-/// and responsive typography for temperature and city name.
+
 class WeatherInfoDisplay extends StatelessWidget {
   final Weather weather;
 
@@ -20,7 +17,6 @@ class WeatherInfoDisplay extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20.w),
       child: Column(
         children: [
-          // City Name with Shadow
           Text(
             weather.cityName,
             style: TextStyle(
@@ -38,7 +34,6 @@ class WeatherInfoDisplay extends StatelessWidget {
           ),
           SizedBox(height: 10.h),
 
-          // Current Temperature (Large & Thin font)
           Text(
             '${weather.temperature.toStringAsFixed(0)}°',
             style: TextStyle(
@@ -48,7 +43,6 @@ class WeatherInfoDisplay extends StatelessWidget {
             ),
           ),
 
-          // Weather Condition (e.g., Clear Sky)
           Text(
             weather.description.toUpperCase(),
             style: TextStyle(
@@ -59,7 +53,6 @@ class WeatherInfoDisplay extends StatelessWidget {
             ),
           ),
 
-          // High / Low Temperature with Localization
           Text(
             '${l10n.tempHigh}: ${weather.tempMax.toStringAsFixed(0)}°  ${l10n.tempLow}: ${weather.tempMin.toStringAsFixed(0)}°',
             style: TextStyle(fontSize: 16.sp, color: Colors.white70),
@@ -67,7 +60,6 @@ class WeatherInfoDisplay extends StatelessWidget {
 
           SizedBox(height: 40.h),
 
-          // Glassmorphism Detail Card
           Container(
             padding: EdgeInsets.all(20.w),
             decoration: BoxDecoration(
@@ -108,7 +100,6 @@ class WeatherInfoDisplay extends StatelessWidget {
     );
   }
 
-  /// Helper method to build a vertical column for a single weather detail.
   Widget _buildDetailItem(IconData icon, String value, String label) {
     return Column(
       children: [
