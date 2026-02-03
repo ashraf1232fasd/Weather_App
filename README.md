@@ -1,4 +1,4 @@
-# ☁️ Flutter Weather App (Clean Architecture)
+# ☁️ Flutter Weather App (Clean Architecture/Bloc)
 
 A robust, production-ready Weather Application built with **Flutter**, demonstrating **Clean Architecture**, **BLoC** state management, and full **Localization**.
 
