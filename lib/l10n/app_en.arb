@@ -1,0 +1,16 @@
+{
+    "appTitle": "Weather App",
+    "searchHint": "Enter city name",
+    "humidity": "Humidity",
+    "windSpeed": "Wind Speed",
+    "startSearching": "Start searching now!",
+    "serverError": "Server Error, please try again",
+    "cachedData": "Cached Data",
+    "settings": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "tempHigh": "H",
+    "tempLow": "L",
+    "unknownError": "Unknown Error",
+    "noCachedData": "No cached data found"
+}

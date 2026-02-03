@@ -1,0 +1,16 @@
+{
+    "appTitle": "تطبيق الطقس",
+    "searchHint": "أدخل اسم المدينة",
+    "humidity": "الرطوبة",
+    "windSpeed": "الرياح",
+    "startSearching": "ابدأ البحث الآن!",
+    "serverError": "خطأ في الاتصال، حاول مرة أخرى",
+    "cachedData": "بيانات محفوظة",
+    "settings": "الإعدادات",
+    "language": "اللغة",
+    "theme": "المظهر",
+    "tempHigh": "ع",
+    "tempLow": "ص",
+    "unknownError": "خطأ غير معروف",
+    "noCachedData": "لا توجد بيانات محفوظة مسبقاً"
+}
