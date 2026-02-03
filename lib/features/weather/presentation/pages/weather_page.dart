@@ -184,7 +184,6 @@ class WeatherPage extends StatelessWidget {
             const Divider(),
             SizedBox(height: 10.h),
             
-            // ✅ خيار اللغة: يعرض اللغة المختارة حالياً
             ListTile(
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.r)),
               tileColor: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.grey.withValues(alpha: 0.1),
@@ -199,7 +198,6 @@ class WeatherPage extends StatelessWidget {
             
             SizedBox(height: 12.h),
 
-            // ✅ خيار الثيم: يعرض المظهر المختار حالياً
             ListTile(
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.r)),
               tileColor: isDark ? Colors.white.withValues(alpha: 0.05) : Colors.grey.withValues(alpha: 0.1),
