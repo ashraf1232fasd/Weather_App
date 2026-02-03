@@ -11,6 +11,7 @@ import 'features/weather/data/repositories/weather_repository_impl.dart';
 import 'features/weather/domain/repositories/weather_repository.dart';
 import 'features/weather/domain/usecases/get_weather_by_city.dart';
 import 'features/weather/domain/usecases/get_cached_weather.dart';
+import 'features/weather/domain/usecases/get_weather_by_location.dart'; 
 import 'features/weather/presentation/bloc/weather_bloc.dart';
 
 /// Global Service Locator instance.
@@ -18,12 +19,14 @@ final sl = GetIt.instance;
 
 /// Initializes all application dependencies.
 Future<void> init() async {
-  //! Features - Weather
 
-  // Bloc
   // Registered as a factory to ensure a new instance is created on each call.
   sl.registerFactory(
-    () => WeatherBloc(getWeatherByCity: sl(), getCachedWeather: sl()),
+    () => WeatherBloc(
+      getWeatherByCity: sl(),
+      getCachedWeather: sl(),
+      getWeatherByLocation: sl(), 
+    ),
   );
 
   sl.registerFactory(() => SettingsBloc(prefs: sl()));
@@ -32,6 +35,7 @@ Future<void> init() async {
   // LazySingleton creates the instance only when it's first requested.
   sl.registerLazySingleton(() => GetWeatherByCity(sl()));
   sl.registerLazySingleton(() => GetCachedWeather(sl()));
+  sl.registerLazySingleton(() => GetWeatherByLocation(sl())); 
 
   // Repository
   sl.registerLazySingleton<WeatherRepository>(

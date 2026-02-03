@@ -21,3 +21,13 @@ class GetWeatherForCity extends WeatherEvent {
 
 /// Event to load the last cached weather data on startup.
 class GetLastWeather extends WeatherEvent {}
+
+///  Fetch weather based on device location
+class GetWeatherForCurrentLocation extends WeatherEvent {
+  final String languageCode;
+
+  const GetWeatherForCurrentLocation(this.languageCode);
+
+  @override
+  List<Object> get props => [languageCode];
+}

@@ -10,6 +10,13 @@ abstract class WeatherRepository {
     String languageCode,
   );
 
+  ///  Fetches weather data using coordinates [lat] & [lon].
+  Future<Either<Failure, Weather>> getWeatherByLocation(
+    double lat,
+    double lon,
+    String languageCode,
+  );
+
   /// Retrieves the last successfully cached weather data.
   Future<Either<Failure, Weather>> getLastCachedWeather();
 

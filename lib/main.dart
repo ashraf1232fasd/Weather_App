@@ -9,14 +9,18 @@ import 'features/settings/presentation/bloc/settings_bloc.dart';
 import 'features/weather/presentation/bloc/weather_bloc.dart';
 import 'features/weather/presentation/pages/weather_page.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: ".env");
+  
+  try {
+    await dotenv.load(fileName: ".env");
+  } catch (e) {
+    debugPrint("Error loading .env file: $e");
+  }
+
   await di.init();
   runApp(const MyApp());
 }
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -30,9 +34,8 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return MultiBlocProvider(
           providers: [
-            // Injecting WeatherBloc and triggering initial data fetch.
             BlocProvider(
-              create: (_) => di.sl<WeatherBloc>()..add(GetLastWeather()),
+              create: (_) => di.sl<WeatherBloc>(),
             ),
             // Injecting SettingsBloc for theme and language management.
             BlocProvider(create: (_) => di.sl<SettingsBloc>()),

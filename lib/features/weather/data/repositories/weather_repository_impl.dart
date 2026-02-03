@@ -50,6 +50,38 @@ class WeatherRepositoryImpl implements WeatherRepository {
     }
   }
 
+  ///  Fetches weather by coordinates (Lat, Lon)
+  @override
+  Future<Either<Failure, Weather>> getWeatherByLocation(
+    double lat,
+    double lon,
+    String languageCode,
+  ) async {
+    if (await networkInfo.isConnected) {
+      try {
+        final remoteWeather = await remoteDataSource.getWeatherByLocation(
+          lat,
+          lon,
+          languageCode,
+        );
+
+        localDataSource.cacheWeather(remoteWeather); // Cache the result
+
+        return Right(remoteWeather);
+      } on ServerException {
+        return const Left(ServerFailure('SERVER_FAILURE'));
+      }
+    } else {
+      // If offline, return the last cached weather (even if location is different, better than error)
+      try {
+        final localWeather = await localDataSource.getLastWeather();
+        return Right(localWeather);
+      } on CacheException {
+        return const Left(CacheFailure('CACHE_FAILURE'));
+      }
+    }
+  }
+
   @override
   /// Retrieves the last successfully cached weather data.
   Future<Either<Failure, Weather>> getLastCachedWeather() async {
