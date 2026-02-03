@@ -56,7 +56,6 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
 
         LocationPermission permission = await Geolocator.checkPermission();
         if (permission == LocationPermission.denied) {
-          // ✅ السطر المطلوب: طلب الإذن فوراً لتظهر النافذة للمستخدم
           permission = await Geolocator.requestPermission();
           if (permission == LocationPermission.denied) {
             emit(const WeatherError('PERMISSION_DENIED'));
