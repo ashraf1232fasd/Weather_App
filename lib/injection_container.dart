@@ -55,10 +55,10 @@ Future<void> init() async {
     () => WeatherLocalDataSourceImpl(sharedPreferences: sl()),
   );
 
-  //! Core
+  //Core
   sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
 
-  //! External
+  // External
   final sharedPreferences = await SharedPreferences.getInstance();
   sl.registerLazySingleton(() => sharedPreferences);
 
