@@ -45,7 +45,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   
-  # هذا السطر ضروري جداً لتوليد ملفات الترجمة تلقائياً
   generate: true 
 
   assets:
